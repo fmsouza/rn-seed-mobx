@@ -1,28 +1,13 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { useStrict } from 'mobx';
+import { Provider } from 'mobx-react';
+import * as stores from './src/common/stores';
+import Application from './src';
 
-function testing() {
-  console.log(arguments);
-}
+useStrict(true);
 
-@testing
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default () => (
+    <Provider {...stores}>
+        <Application />
+    </Provider>
+);
