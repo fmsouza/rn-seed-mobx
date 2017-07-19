@@ -6,6 +6,8 @@ import { StyleSheet, Text, View, Button } from 'react-native';
 @observer
 export class Second extends React.Component {
 
+    static navigationOptions = { title: 'Second page' };
+
     render() {
         const { counter, navigation } = this.props;
         return (

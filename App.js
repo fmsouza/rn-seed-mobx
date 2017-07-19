@@ -1,20 +1,37 @@
 import React from 'react';
+import { BackHandler, Platform, StatusBar } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { useStrict } from 'mobx';
 import { Provider } from 'mobx-react';
 import * as stores from './src/common/stores';
-import * as Views from './src/components/views';
+import Router, { INITIAL_ROUTE } from './src';
 
 useStrict(true);
 
-const Router = StackNavigator({
-    home: { screen: Views.Home },
-    second: { screen: Views.Second },
-}, {
-    initialRouteName: 'home'
-});
+export default class Application extends React.Component {
 
+    componentWillMount() {
+        BackHandler.addEventListener('hardwareBackPress', () => {
+            console.log("Back pressed");
+            const { state, goBack } = this.props.navigation;
+            const { index, routes } = state;
+            if (routes[index].routeName !== INITIAL_ROUTE) {
+                goBack();
+                return true;
+            }
+            return false;
+        });
+    }
 
-export default () => (
-    <Provider children={<Router />} {...stores} />
-);
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress');
+    }
+
+    render() {
+        return (
+            <Provider {...stores}>
+                <Router />
+            </Provider>
+        );
+    }
+}
