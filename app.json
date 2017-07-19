@@ -1,5 +1,14 @@
 {
   "expo": {
-    "sdkVersion": "18.0.0"
+    "name": "RN Seed Mobx",
+    "slug": "rn-seed-mobx",
+    "sdkVersion": "18.0.0",
+    "privacy": "public",
+    "version": "0.1.0",
+    "primaryColor": "#FFFFFF",
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#333333"
+    }
   }
 }
