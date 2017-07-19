@@ -1,22 +1,20 @@
 import React from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
 import { inject, observer } from 'mobx-react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 @inject('counter')
 @observer
-export default class Application extends React.Component {
-
-    handleClick() {
-        const { counter } = this.props;
-        counter.increment();
-    }
+export class Second extends React.Component {
 
     render() {
-        const { counter } = this.props;
+        const { counter, navigation } = this.props;
         return (
             <View style={styles.container}>
-                <Text>{counter.count}</Text>
-                <Button title="Press me" onPress={() => this.handleClick()} />
+                <Text>Counter: {counter.count}</Text>
+                <Button
+                    title="Increment"
+                    onPress={() => counter.increment()}
+                />
             </View>
         );
     }
