@@ -9,11 +9,5 @@ export default StackNavigator({
     home: { screen: Views.Home },
     second: { screen: Views.Second },
 }, {
-    initialRouteName: INITIAL_ROUTE,
-    navigationOptions: {
-        headerStyle: {
-            height: Platform.OS === "ios" ? 64 : (56 + StatusBar.currentHeight),
-            paddingTop: Platform.OS === "ios" ? 20 : StatusBar.currentHeight
-        }
-    }
+    initialRouteName: INITIAL_ROUTE
 });
