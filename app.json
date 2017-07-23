@@ -7,8 +7,8 @@
     "version": "0.1.0",
     "primaryColor": "#000000",
     "androidStatusBar": {
-      "barStyle": "light-content",
-      "backgroundColor": "#000000"
+      "backgroundColor": "#000000",
+      "barStyle": "light-content"
     }
   }
 }

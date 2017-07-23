@@ -1,10 +1,11 @@
 import React from 'react';
-import { BackHandler, Platform, StatusBar } from 'react-native';
+import { BackHandler, Platform, StatusBar, View } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { useStrict } from 'mobx';
 import { Provider } from 'mobx-react';
 import * as stores from './src/common/stores';
 import Router, { INITIAL_ROUTE } from './src';
+import AppConfig from './app.json';
 
 useStrict(true);
 
@@ -12,7 +13,6 @@ export default class Application extends React.Component {
 
     componentWillMount() {
         BackHandler.addEventListener('hardwareBackPress', () => {
-            console.log("Back pressed");
             const { state, goBack } = this.props.navigation;
             const { index, routes } = state;
             if (routes[index].routeName !== INITIAL_ROUTE) {
@@ -30,7 +30,10 @@ export default class Application extends React.Component {
     render() {
         return (
             <Provider {...stores}>
-                <Router />
+                <View style={{ flex: 1 }}>
+                    <StatusBar {...AppConfig.expo.androidStatusBar} />
+                    <Router />
+                </View>
             </Provider>
         );
     }
