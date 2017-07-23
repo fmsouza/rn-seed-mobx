@@ -11,16 +11,16 @@
     "test": "node node_modules/jest/bin/jest.js --watch"
   },
   "dependencies": {
-    "expo": "18.0.3",
+    "expo": "19.0.0",
     "mobx": "3.2.1",
     "mobx-react": "4.2.2",
     "react": "16.0.0-alpha.12",
-    "react-native": "0.45.1",
+    "react-native": "0.46.4",
     "react-navigation": "1.0.0-beta.11"
   },
   "devDependencies": {
     "react-native-scripts": "0.0.50",
-    "jest-expo": "18.0.0",
+    "jest-expo": "19.0.0",
     "react-test-renderer": "16.0.0-alpha.12"
   },
   "jest": {
