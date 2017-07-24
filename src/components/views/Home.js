@@ -12,7 +12,7 @@ export class Home extends React.Component {
                 <Text>Home view</Text>
                 <Button
                     title="Go to next"
-                    onPress={() => navigation.navigate('second', { name: 'Lucy' })}
+                    onPress={() => navigation.navigate('second')}
                 />
             </View>
         );
